@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('<h3>Is docker working fine?</h3>');
+    res.send('<h3>Is docker working fine? yes or no</h3>');
 });
 
 const port = process.env.PORT || 5000;
