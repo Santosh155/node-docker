@@ -7,6 +7,8 @@ const {
     MONGO_PORT,
 } = require('./config/config');
 
+const postRoute = require('./routes/postRoute');
+
 const app = express();
 
 const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
@@ -29,9 +31,13 @@ const connectWithRetry = () => {
 
 connectWithRetry();
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.send('<h3>Is docker working fine? yes or no</h3>');
 });
+
+app.use('/api/v1/post', postRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
