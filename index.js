@@ -8,6 +8,7 @@ const {
 } = require('./config/config');
 
 const postRoute = require('./routes/postRoute');
+const userRoute = require('./routes/userRoute');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/post', postRoute);
+app.use('/api/v1/users', userRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
