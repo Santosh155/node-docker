@@ -10,7 +10,7 @@ router
     .post(postController.createPost);
 
 router
-    .route(':id')
+    .route('/:id')
     .get(postController.getOnePost)
     .patch(postController.updatePost)
     .delete(postController.deletePost);
