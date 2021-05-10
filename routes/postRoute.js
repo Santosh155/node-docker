@@ -13,7 +13,7 @@ router
 router
     .route('/:id')
     .get(postController.getOnePost)
-    .patch(postController.updatePost)
-    .delete(postController.deletePost);
+    .patch(protect, postController.updatePost)
+    .delete(protect, postController.deletePost);
 
 module.exports = router;
