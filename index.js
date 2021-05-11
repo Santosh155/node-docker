@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const redis = require('redis');
+const cors = require('cors');
 let RedisStore = require('connect-redis')(session);
 
 const {
@@ -43,7 +44,7 @@ const connectWithRetry = () => {
 };
 
 connectWithRetry();
-
+app.use(cors({}));
 app.use(
     session({
         store: new RedisStore({ client: RedisClient }),
@@ -58,9 +59,11 @@ app.use(
     })
 );
 
+app.enable('trust proxy');
 app.use(express.json());
 
 app.get('/api/v1', (req, res) => {
+    console.log('load blancing test');
     res.send('<h3>Is docker working fine? yes or no</h3>');
 });
 
