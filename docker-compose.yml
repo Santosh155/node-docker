@@ -1,7 +1,7 @@
 version: '3'
 services:
     nginx:
-        image: ngixn:stable-alpine
+        image: nginx:stable-alpine
         ports:
             - '5000:80'
         volumes:
