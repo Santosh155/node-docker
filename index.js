@@ -60,7 +60,7 @@ app.use(
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/api/v1', (req, res) => {
     res.send('<h3>Is docker working fine? yes or no</h3>');
 });
 
