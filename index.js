@@ -63,7 +63,7 @@ app.enable('trust proxy');
 app.use(express.json());
 
 app.get('/api/v1', (req, res) => {
-    console.log('load blancing test');
+    console.log('load blancing test!!');
     res.send('<h3>Is docker working fine? yes or no</h3>');
 });
 
